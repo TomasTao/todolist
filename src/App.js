@@ -18,12 +18,12 @@ export class App extends Component {
 
   componentDidMount()
   {
-    Axios.get('http://3.17.159.3:5000/todos/')
+    Axios.get('http://localhost:5000/todos/')
     .then(res=>this.setState({todos: res.data}))
   }
   mark =(id)=>
   {
-    Axios.post(`http://3.17.159.3:5000/todos/${id}`)
+    Axios.post(`http://localhost:5000/todos/${id}`)
   .then(res=>this.setState({todos: this.state.todos.map(todo=>{
     if(todo._id===id)
     {
@@ -35,7 +35,7 @@ export class App extends Component {
 
 add_todo=(title)=>
 {
- Axios.post('http://3.17.159.3:5000/todos/add',{
+ Axios.post('http://localhost:5000/todos/add',{
    title,
    completed: false,
  })
