@@ -18,12 +18,12 @@ export class App extends Component {
 
   componentDidMount()
   {
-    Axios.get('http://localhost:5000/todos/')
+    Axios.get('https://tomasdemo.herokuapp.com/todos/')
     .then(res=>this.setState({todos: res.data}))
   }
   mark =(id)=>
   {
-    Axios.post(`http://localhost:5000/todos/${id}`)
+    Axios.post(`https://tomasdemo.herokuapp.com/todos/${id}`)
   .then(res=>this.setState({todos: this.state.todos.map(todo=>{
     if(todo._id===id)
     {
@@ -35,7 +35,7 @@ export class App extends Component {
 
 add_todo=(title)=>
 {
- Axios.post('http://localhost:5000/todos/add',{
+ Axios.post('https://tomasdemo.herokuapp.com/todos/add',{
    title,
    completed: false,
  })
@@ -44,7 +44,7 @@ add_todo=(title)=>
 
 delete =(id)=>
 {
-  Axios.delete(`http://localhost:5000/todos/${id}`)
+  Axios.delete(`https://tomasdemo.herokuapp.com/todos/${id}`)
   .then(res=>this.setState(
     {
         todos:this.state.todos.filter(todo=>todo._id!==id)
